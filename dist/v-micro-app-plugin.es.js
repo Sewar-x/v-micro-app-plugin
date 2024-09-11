@@ -1,4 +1,4 @@
-import { i, e, b, h, f, c, d, a, r } from "./index-JJf14dij.mjs";
+import { i, e, b, h, f, c, d, a, r } from "./index-J5onhg2q.mjs";
 export {
   i as default,
   e as getMainAppConfigs,

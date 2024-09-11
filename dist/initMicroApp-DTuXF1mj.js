@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const index = require("./index-C103Pb0m.js");
+const index = require("./index-BtCqO1nb.js");
 async function initMicroApp(isBaseApp, app, options, router, store) {
   if (isBaseApp) {
     console.log(`📌${options.projectName}为主应用, 注册主应用!`);
     index.microApp.router.setBaseAppRouter(router);
-    const { getMainAppConfigs } = await Promise.resolve().then(() => require("./index-C103Pb0m.js")).then((n) => n.appConfigs);
+    const { getMainAppConfigs } = await Promise.resolve().then(() => require("./index-BtCqO1nb.js")).then((n) => n.appConfigs);
     const MainAppConfigs = await getMainAppConfigs();
     index.microApp.start(MainAppConfigs);
   } else {

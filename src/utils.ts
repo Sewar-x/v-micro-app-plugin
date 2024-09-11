@@ -11,7 +11,7 @@ import microAppSetting from './settings/microAppSetting.ts'
  */
 export function IsMicroApp(): boolean {
   const isBaseApp = microAppSetting.getConfig('isBaseApp')
-  return isBaseApp || false
+  return isBaseApp ||  (window.__MICRO_APP_ENVIRONMENT__ || false) 
 }
 
 /**

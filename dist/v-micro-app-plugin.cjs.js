@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const index = require("./index-C103Pb0m.js");
+const index = require("./index-BtCqO1nb.js");
 exports.default = index.initMyMicroApp;
 exports.getMainAppConfigs = index.getMainAppConfigs;
 exports.getMicroAppMessage = index.getMicroAppMessage;

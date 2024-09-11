@@ -1,4 +1,3 @@
-"use strict";
 const _microAppSetting = class _microAppSetting {
   // 私有构造函数，确保外部不能直接通过new创建实例  
   constructor() {
@@ -1593,8 +1592,8 @@ function runDynamicInlineScript(address, app, scriptInfo) {
   runScript(address, app, scriptInfo, void 0, replaceElement);
   return replaceElement;
 }
-function runCode2InlineScript(address, code, module2, scriptElement, attrs, callback) {
-  if (module2) {
+function runCode2InlineScript(address, code, module, scriptElement, attrs, callback) {
+  if (module) {
     globalEnv.rawSetAttribute.call(scriptElement, "type", "module");
     if (isInlineScript(address)) {
       scriptElement.textContent = code;
@@ -6755,7 +6754,7 @@ class MicroApp extends EventCenterForBaseApp {
 const microApp = new MicroApp();
 function IsMicroApp() {
   const isBaseApp = microAppSetting$1.getConfig("isBaseApp");
-  return isBaseApp || false;
+  return isBaseApp || (window.__MICRO_APP_ENVIRONMENT__ || false);
 }
 function IsBaseApp() {
   return microAppSetting$1.getConfig("isBaseApp");
@@ -6882,13 +6881,13 @@ async function initMyMicroApp(app, options, router2, store) {
   const microAppUtils2 = await Promise.resolve().then(() => utils);
   console.log(`💥microAppUtils已可用:`, microAppUtils2.default);
   const { getMicroApp: getMicroApp2, isBaseApp, isMicroApp, getMicroAppName } = microAppUtils2.default;
-  const { initMicroApp } = await Promise.resolve().then(() => require("./initMicroApp-02ezKcav.js"));
+  const { initMicroApp } = await import("./initMicroApp-Bd4Pn_m5.mjs");
   initMicroApp(isBaseApp(), app, options, router2, store);
   initVueRouter(router2);
   const microAppInst = getMicroApp2();
   console.log("===🎉🎉 microApp初始化完成 🎉🎉==", microAppInst);
   console.log(`🚩${options.projectName}当前：`, isMicroApp() ? "在微前端环境" : "不在微前端环境", isBaseApp() ? "主应用" : "子应用");
-  const { initMicroAppMessage } = await Promise.resolve().then(() => require("./index-bTO05u4N.js"));
+  const { initMicroAppMessage } = await import("./index-BwabhMDa.mjs");
   microAppMessageInstance = await initMicroAppMessage();
   console.log(isBaseApp() ? "主应用" : "子应用", `🐷${getMicroAppName()}:`, "🐬microAppMessage初始化完成", microAppMessageInstance);
   return microAppInst;
@@ -6897,17 +6896,19 @@ function getMicroAppMessage() {
   return microAppMessageInstance;
 }
 const microAppRouter = getRounterInstance();
-exports.EventCenterForMicroApp = EventCenterForMicroApp;
-exports.appConfigs = appConfigs;
-exports.getAllApps = getAllApps;
-exports.getMainAppConfigs = getMainAppConfigs;
-exports.getMicroAppMessage = getMicroAppMessage;
-exports.getSubAppConfigs = getSubAppConfigs;
-exports.initMyMicroApp = initMyMicroApp;
-exports.microApp = microApp;
-exports.microAppRouter = microAppRouter;
-exports.microAppSetting = microAppSetting$1;
-exports.microAppUtils = microAppUtils;
-exports.renderAllSubApp = renderAllSubApp;
-exports.router = router;
-exports.utils = utils;
+export {
+  EventCenterForMicroApp as E,
+  microAppUtils as a,
+  getMicroAppMessage as b,
+  microAppRouter as c,
+  microAppSetting$1 as d,
+  getMainAppConfigs as e,
+  getSubAppConfigs as f,
+  getAllApps as g,
+  router as h,
+  initMyMicroApp as i,
+  appConfigs as j,
+  microApp as m,
+  renderAllSubApp as r,
+  utils as u
+};
